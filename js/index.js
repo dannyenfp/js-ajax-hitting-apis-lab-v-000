@@ -58,7 +58,7 @@ function getBranches(el) {
   const repoName = el.dataset.repository;
   const xhr = new XMLHttpRequest();
   xhr.addEventListener('load', displayBranches);
-  xhr.open('GET', 'https://api.github.com/repos/octocat/' + repoName + '/commits');
+  xhr.open('GET', 'https://api.github.com/repos/octocat/' + repoName + '/branches');
   xhr.send();
 }
 
