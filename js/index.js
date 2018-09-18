@@ -33,7 +33,7 @@ function getCommits(el) {
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayCommits);
   req.open('GET', 'https://api.github.com/repos/octocat/' + name + '/commits');
-  req.send();l
+  req.send();   
 }
 
 function displayCommits() {
