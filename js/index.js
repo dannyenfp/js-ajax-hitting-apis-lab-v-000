@@ -54,7 +54,21 @@ function displayCommits() {
   document.getElementById('details').innerHTML = commitsList;
 }
 
+function getBranches(el) {
+  const repoName = el.dataset.repository;
+  const xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', displayBranches);
+  req.open('GET', 'https://api.github.com/repos/octocat/' + repoName + '/commits');
+  xhr.send();
+}
 
+function displayBranches() {
+  const branches = JSON.parse(this.responseText);
+  const branchesList = `<ul>${branches
+    .map(branch => '<li>' + branch.name + '</li>')
+    .join('')}</ul>`;
+  document.getElementById('details').innerHTML = branchesList;
+}
 
 
 
